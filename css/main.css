@@ -1,0 +1,543 @@
+/**** 
+    반응형 분기는 11000만 한다.    
+*****/
+
+/*common*/
+html,
+body {
+    line-height: 1;
+}
+button {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    box-sizing: border-box;
+    background: transparent;
+}
+section h2 {
+    display: flex;
+    flex-direction: column;
+}
+section h2 > strong {
+    font-family: "GmarketSansMedium";
+    font-size: 2.5rem;
+    line-height: 128%;
+}
+section h2 > span {
+    font-size: 1rem;
+    font-weight: 600;
+}
+.defSec .inner {
+    position: relative;
+}
+.defSec a.more {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-mb);
+    border: 1px solid var(--color-mb);
+    font-size: var(--font-size-f);
+    font-weight: 900;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.thum {
+    position: relative;
+    display: block;
+}
+.thum img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/**** 이달의 교육-(s) *****/
+section.eduMonth {
+    height: auto;
+    overflow-x: hidden;
+}
+section.eduMonth {
+    padding: 13.75rem 0 6.75rem 0;
+}
+
+section.eduMonth .inner h2 {
+    align-items: center;
+    gap: 0.312rem;
+    color: var(--color-wh);
+    padding-bottom: 1rem;
+}
+section.eduMonth .inner h2 > strong {
+    font-size: 2.5rem;
+}
+section.eduMonth .inner h2 > span {
+    font-weight: 500;
+}
+
+.calendarArea {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 0;
+}
+.calendarArea .year {
+    width: 7.25rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    gap: 0.25rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+.calendarArea .year > strong {
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: -0.025em;
+}
+.calendarArea .year > span {
+    font-size: var(--font-size-f);
+    font-weight: 600;
+}
+.calendarArea .year button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2rem;
+    height: 2rem;
+    color: transparent;
+}
+.calendarArea .year button::before {
+    font: var(--fa-font-solid);
+    color: var(--color-wh);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.5;
+    transition: 0.2s;
+}
+.calendarArea .year button:first-of-type {
+    left: 0;
+}
+.calendarArea .year button:first-of-type::before {
+    content: "\f053";
+}
+.calendarArea .year button:last-of-type {
+    right: 0;
+}
+.calendarArea .year button:last-of-type::before {
+    content: "\f054";
+}
+.calendarArea .year button:hover::before {
+    opacity: 1;
+}
+.calendarArea .day {
+    width: calc(100% - 7.25rem);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+.calendarArea .day li {
+    display: block;
+    font-weight: 600;
+    position: relative;
+    padding: 3px 1px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.5);
+    transition: 0.2s;
+    letter-spacing: -0.025em;
+}
+
+.calendarArea .day li::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    background-color: var(--color-wh);
+    bottom: 0;
+    left: 0;
+    opacity: 0.5;
+    z-index: 2;
+}
+.calendarArea .day li:hover::before,
+.calendarArea .day li.on::before {
+    content: "";
+    width: 2.2rem;
+    height: 2.2rem;
+    position: absolute;
+    display: block;
+    border: 2px solid var(--color-wh);
+    border-radius: 2.2rem;
+    z-index: 2;
+    top: calc(50% + 1px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.6;
+}
+.calendarArea .day li.on,
+.calendarArea .day li:hover {
+    color: rgba(255, 255, 255, 1);
+}
+.calendarArea .more {
+    position: absolute;
+    top: -1.75rem;
+    right: 0;
+    padding: var(--font-size-f) 1rem;
+    font: 500;
+    letter-spacing: -0.025em;
+    opacity: 0.9;
+    transition: 0.2s;
+}
+.calendarArea .more::after {
+    content: "\2b";
+    font: var(--fa-font-solid);
+    font-size: var(--font-size-f);
+    padding-left: 0.25rem;
+}
+.calendarArea .more:hover {
+    opacity: 1;
+}
+.monthCourse {
+    width: 124%;
+    margin-left: -12%;
+    padding-bottom: 3rem;
+}
+
+.monthCourse .swiper-slide {
+    transition: transform 0.5s ease;
+    transform-origin: top center;
+}
+.monthCourse .swiper-slide-active {
+    transform: scale(1.1);
+}
+.monthCourse .card {
+    position: relative;
+}
+.monthCourse .card .thum {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    padding-bottom: 143%;
+}
+
+.monthCourse .card p {
+    padding: 1rem 0;
+}
+.monthCourse .card p span {
+    color: #46c6ff;
+    font-weight: 900;
+}
+
+.monthCourse .card p strong {
+    font-size: 1.25rem;
+    display: block;
+    font-weight: 900;
+    padding-top: 0.5rem;
+}
+.monthCourse .card a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: transparent;
+    opacity: 0;
+}
+.swiper-slide-active .card > p,
+.desc {
+    display: none;
+}
+.swiper-slide-active .card .thum::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 90;
+    background: var(--color-bk);
+    opacity: 0.6;
+}
+.swiper-slide-active .card .desc {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 99;
+}
+.swiper-slide-active .card .desc > span,
+.swiper-slide-active .card .desc > strong,
+.swiper-slide-active .card .desc > time {
+    width: 80%;
+    transform: translateY(-3rem);
+    font-size: 1.25rem;
+}
+.swiper-slide-active .card .desc > span:nth-of-type(1) {
+    border: 1px solid var(--color-wh);
+    width: auto;
+    padding: 0.25rem var(--font-size-f);
+    border-radius: 100px;
+}
+.swiper-slide-active .card .desc > strong {
+    font-size: 1.56rem;
+    font-weight: 600;
+    letter-spacing: -0.05em;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    margin-bottom: var(--font-size-f);
+}
+.swiper-slide-active .card .desc span:nth-of-type(2),
+.swiper-slide-active .card .desc time {
+    text-align: left;
+    padding: 0.375rem 0;
+}
+
+/*공간소개*/
+.spaceIntro {
+    padding: 13.75rem 0 8.43rem 0;
+}
+
+.spaceIntro h2 {
+    gap: var(--font-size-f);
+    padding-bottom: 2rem;
+}
+.spaceSwiperContainer {
+    display: flex;
+    width: 100%;
+}
+.paginationBtnWrap {
+    width: calc(100% - 35rem);
+}
+.spaceIntroSlideWrap {
+    width: 35rem;
+}
+.paginationBtnWrap {
+    padding: 1.875rem 0;
+}
+.paginationBtnWrap .swiper-pagination-bullet {
+    background: transparent;
+    width: auto;
+    height: auto;
+    opacity: 1;
+    border: 2px solid var(--color-mb);
+    color: var(--color-mb);
+    padding: 1rem 2rem;
+    border-radius: 20rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+.paginationBtnWrap .swiper-pagination-bullet-active {
+    background: var(--color-mb);
+    color: var(--color-wh);
+}
+
+.paginationBtnWrap
+    .swiper-pagination-horizontal.swiper-pagination-bullets
+    .swiper-pagination-bullet {
+    margin: 0 0.625rem 1rem 0;
+}
+.paginationBtnWrap
+    .swiper-pagination-horizontal.swiper-pagination-bullets
+    .swiper-pagination-bullet:nth-of-type(2) {
+    margin-right: 50%;
+}
+.spaceIntroSlideWrap .thum {
+    position: relative;
+    width: 100%;
+    height: 23.75rem;
+    width: 100%;
+}
+.spaceIntro .more {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/*우리지역 생활문화공간*/
+.findSpace {
+    padding: 5.3rem 0 14rem 0;
+}
+.findSpace .inner::after {
+    content: "";
+    display: block;
+    width: 20rem;
+    height: 20rem;
+    background: url(../img/main-bg-o.svg) no-repeat center center;
+    background-size: cover;
+    opacity: 0.1;
+    position: absolute;
+    top: -22rem;
+    right: 17rem;
+    animation: bgmove 2s ease-in-out infinite;
+}
+.findSpace h2 {
+    width: 100%;
+    padding: 3.125rem 0 4rem 0;
+    background: url(../img/mimgFile_1626681457_0.gif) no-repeat
+        calc(100% - 6rem) center;
+    background-size: 40%;
+}
+.findSpace a.more {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+/*SNS*/
+.glifeSns {
+    padding: 5.8rem 0 5rem 0;
+    background: var(--color-sb);
+}
+.glifeSns .inner {
+    overflow: hidden;
+}
+.glifeSns h2 {
+    padding-bottom: 1rem;
+}
+.snsSlideWrap {
+    float: right;
+    width: 48.62rem;
+    transition: 0.5s;
+    padding: 2rem 0;
+    margin-top: -2rem;
+    overflow: hidden;
+}
+.snsSlideWrap .swiper-slide .thum {
+    width: 14.6rem;
+    height: 14.6rem;
+    border-radius: 2rem;
+    overflow: hidden;
+}
+.snsSlideWrap .swiper-slide {
+    transition: 0.3s;
+}
+.snsSlideWrap .swiper-slide:hover {
+    transform: translateY(-2rem);
+}
+.glifeSns a.more {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+@media (min-width: 1101px) {
+    .defSec a.more:hover {
+        background: var(--color-mb);
+        color: var(--color-wh);
+    }
+    section.eduMonth {
+        padding-top: 13.75rem;
+    }
+}
+@media (max-width: 1100px) {
+    section.eduMonth {
+        padding: 22% var(--gap-sm) calc(12.956% - 3rem) var(--gap-sm);
+    }
+    .calendarArea {
+        flex-direction: column;
+    }
+    .calendarArea .day {
+        width: 100%;
+        margin-top: 1.25rem;
+    }
+
+    .spaceIntro,
+    .findSpace {
+        padding: 12% 0;
+    }
+    .spaceIntro h2 {
+        text-align: center;
+    }
+
+    .spaceIntro a.more,
+    .spaceIntro h2 > span,
+    .glifeSns h2 > span {
+        display: none;
+    }
+    .spaceSwiperContainer {
+        flex-direction: column-reverse;
+    }
+    .paginationBtnWrap,
+    .spaceIntroSlideWrap {
+        width: 100%;
+    }
+
+    .findSpace h2 {
+        background-position: 100% 100%;
+    }
+    .glifeSns h2 {
+        max-width: 21rem;
+    }
+    .snsSlideWrap {
+        width: 100%;
+        float: none;
+        overflow: visible;
+    }
+    .findSpace a.more,
+    .glifeSns a.more {
+        position: relative;
+        width: 100%;
+        height: 3.5rem;
+        border-radius: 4px;
+        border: 0;
+        overflow: hidden;
+        background: var(--color-sb);
+        text-indent: -999999px;
+    }
+    .glifeSns a.more {
+        background: transparent;
+        border: 1px solid var(--color-mb);
+        color: var(--color-mb);
+    }
+    .findSpace a.more::before,
+    .glifeSns a.more::before {
+        content: "더보기";
+        text-indent: 0;
+        position: absolute;
+        top: 50%;
+        left: calc(50% - 1rem);
+        transform: translate(-50%, -50%);
+        color: var(--color-mb);
+    }
+
+    .findSpace a.more::after,
+    .glifeSns a.more::after {
+        content: "\2b";
+        text-indent: 0;
+        position: absolute;
+        top: 50%;
+        left: calc(50% + 1rem);
+        transform: translate(-50%, -50%);
+        font: var(--fa-font-solid);
+        font-size: 0.812rem;
+        color: var(--color-mb);
+    }
+}
+
+@keyframes bgmove {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-1.125rem);
+    } /* Move up */
+}
