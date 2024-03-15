@@ -539,5 +539,5 @@ section.eduMonth .inner h2 > span {
     }
     50% {
         transform: translateY(-1.125rem);
-    } /* Move up */
+    }
 }

@@ -77,3 +77,4 @@ var snsSlide = new Swiper(".snsSlide", {
         disableOnInteraction: false,
     },
 });
+var noticeSlide = new Swiper(".noticeSlide", {});
